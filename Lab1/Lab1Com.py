@@ -1,11 +1,11 @@
 A6T = "abcdefghijklmnopqrstuvwxyz"
-shift = -29
+shift = -500
 
 def crypt(text):
   rez=""
   for ch in text:
     if ch in A6T:
-      rez+=A6T[(A6T.find(ch)+shift%len(A6T))%len(A6T)]
+      rez+=A6T[(A6T.find(ch)+shift)%len(A6T)]
     else:
       rez+=ch
   return rez
@@ -13,7 +13,7 @@ def decrypt(text):
   rez=""
   for ch in text:
     if ch in A6T:
-      rez+=A6T[(A6T.find(ch)-shift%len(A6T))%len(A6T)]
+      rez+=A6T[(A6T.find(ch)-shift)%len(A6T)]
     else:
       rez+=ch
   return rez
